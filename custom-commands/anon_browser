@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+DATA_DIR=`mktemp -d`
+
+function remove_temp {
+	rm -rf ${DATA_DIR}
+}
+
+trap remove_temp SIGINT EXIT SIGQUIT SIGTERM
+
+BROWSER_EXEC=/usr/bin/google-chrome
+
+${BROWSER_EXEC} --user-data-dir=${DATA_DIR} 1>${DATA_DIR}/log 2>&1
+
+trap - SIGINT EXIT SIGQUIT SIGTERM

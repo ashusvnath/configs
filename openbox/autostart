@@ -1,0 +1,7 @@
+#set desktop background
+nitrogen --restore &
+#show system stats
+conky 1>>~/.conky.log 2>&1 -d &
+
+#setup launcher
+launchy --show 1>>~/.launchy.log 2>&1

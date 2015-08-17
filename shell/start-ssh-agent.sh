@@ -6,4 +6,4 @@
 
 source "${HOME}/.ssh-agent-details" > /dev/null
 
-[ `ssh-add -L | grep "No identities" | wc -l` -eq 1 ] && ssh-add
+[ `ssh-add -L | grep "The agent has no identities" | wc -l` -eq 1 ] && ssh-add
